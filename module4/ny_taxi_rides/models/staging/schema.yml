@@ -4,12 +4,12 @@ sources:
   - name: staging
     database: zoomcamp-dbt
     schema: trip_data
-      # loaded_at_field: record_loaded_at
+      # loaded_at_field: 
     tables:
       - name: green_tripdata
       - name: yellow_tripdata
-         # freshness:
-           # error_after: {count: 6, period: hour}
+      # freshness:
+      #   error_after: {count: 6, period: hour}
 
 models:
     - name: stg_green_tripdata
@@ -228,6 +228,6 @@ models:
 
           - name: Tolls_amount 
             description: Total amount of all tolls paid in trip.
-            
+
           - name: Total_amount 
             description: The total amount charged to passengers. Does not include cash tips.
