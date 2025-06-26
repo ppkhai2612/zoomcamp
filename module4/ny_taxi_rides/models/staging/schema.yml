@@ -2,16 +2,17 @@ version: 2
 
 sources:
   - name: staging
-    database: zoomcamp-dbt
-    schema: trip_data
-
-      # loaded_at_field: 
+    database: "{{ env_var('DBT_DATABASE', 'zoomcamp-dbt') }}"
+    schema: "{{ env_var('DBT_SCHEMA', 'trip_data') }}"
+    
+    loaded_at_field: pickup_datetime
     tables:
       - name: green_tripdata
+          # loaded_at_field: 
+        
       - name: yellow_tripdata
         freshness:
           error_after: {count: 6, period: hour}
-
 models:
     - name: stg_green_tripdata
       description: >
