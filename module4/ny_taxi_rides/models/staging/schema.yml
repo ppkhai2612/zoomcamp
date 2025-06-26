@@ -4,16 +4,15 @@ sources:
   - name: staging
     database: "{{ env_var('DBT_DATABASE', 'zoomcamp-dbt') }}"
     schema: "{{ env_var('DBT_SCHEMA', 'trip_data') }}"
-    
+
     tables:
       - name: green_tripdata
-        
         
       - name: yellow_tripdata
         config:
           freshness:
-            error_after: {count: 6, period: hour}
-          loaded_at_field: tpep_pickup_datetime
+            error_after: {count: 30, period: day}
+          # loaded_at_field: tpep_pickup_datetime
           
 
 models:
