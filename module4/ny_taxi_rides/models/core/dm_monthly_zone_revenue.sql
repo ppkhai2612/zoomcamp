@@ -26,4 +26,4 @@ with trips_data as (
     avg(trip_distance) as avg_monthly_trip_distance
 
     from trips_data
-    group by 1,2,3
+    group by 1, 2, 3
